@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reducer from './store/reducer';
 import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -13,7 +14,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   reducer,
-  applyMiddleware(sagaMiddleware));
+  composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
 sagaMiddleware.run(watchAgeUp)
 
