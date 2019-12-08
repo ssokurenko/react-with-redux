@@ -1,5 +1,5 @@
 
-import { takeEvery, put, delay } from 'redux-saga/effects';
+import { takeLatest, put, delay } from 'redux-saga/effects';
 
 const randomDelay = () => delay(Math.random() * 1000);
 
@@ -23,5 +23,5 @@ function* asyncAgeChange(action) {
 }
 
 export function* watchAgeUp() {
-  yield takeEvery('AGE_CHANGE', asyncAgeChange)
+  yield takeLatest('AGE_CHANGE', asyncAgeChange)
 }
